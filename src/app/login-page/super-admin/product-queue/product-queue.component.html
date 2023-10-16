@@ -1,0 +1,244 @@
+<!-- <h1>Wireless Products</h1>
+<h3>Postpaid Products Queue</h3>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Plan Rental</th>
+        <th>Plan Validity</th>
+        <th>Total Data</th>
+        <th>voice</th>
+        <th>sms</th>
+        <th>Add on Family SIMS</th>
+        <th>Family SIM Data</th>
+        <th>Supscriptions</th>
+        <th>Admin Name</th>
+        <th>status</th>
+        
+    </thead>
+    <tbody *ngFor="let p of products">
+        <tr>
+        <td>{{p.id}}</td>
+    </tr>
+    <tr>
+        <td>{{p.planRental}}</td>
+    </tr>
+    <tr>
+        <td>{{p.planValidity}}</td>
+    </tr>
+    <tr>
+        <td>{{p.totalData}}</td>
+    </tr>
+    <tr>
+        <td>{{p.voice}}</td>
+    </tr>
+    <tr>
+        <td>{{p.sms}}</td>
+    </tr>
+    <tr>
+        <td>{{p.addOnFamilySims}}</td>
+    </tr>
+    <tr>
+        <td>{{p.familySimData}}</td>
+    </tr>
+    <tr>
+        <td>{{p.subscriptions}}</td>
+    </tr>
+    <tr>
+        <td>{{p.adminName}}</td>
+    </tr>
+    <tr>
+        <td>{{p.status}}</td>
+    </tr>
+    </tbody>
+</table> -->
+<h1>Wireless Products</h1>
+<h3>Prepaid Products Queue</h3>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Plan value</th>
+        <th>Plan Validity</th>
+        <th>Total Data</th>
+        <th>Data Per Day</th>
+        <th>voice</th>
+        <th>sms</th>
+        <th>Supscriptions</th>
+        <th>Admin Name</th>
+        <th>Status</th>
+        <th>Choices</th>
+        <!-- <th>Delete</th> Corrected 'status' to 'Status' -->
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of WPreproducts| statusfiler:statuses ; let i = index ">
+            <td  >{{p.id}}</td>
+            <td >{{p.planvaluel}}</td>
+            <td >{{p.planvalidity}}</td>
+            <td >{{p.totaldata}}</td>
+            <td >{{p.dataperday}}</td>
+            <td >{{p.voice}}</td>
+            <td >{{p.sms}}</td>
+            <td >{{p.subscriptions}}</td>
+            <td >{{p.adminname}}</td>
+            <td >{{p.status}}</td>
+            <div class="button-group">
+                <td>
+                    <button class="approve"(click)="onApproveWPRE(p)"><i class="fa fa-check"></i> Approve</button>
+                    
+                    
+                <td>
+                    <button class="delete" (click)="ondeleteWPRE(p)"><i class="fa fa-trash"></i> Delete</button>
+              </div>
+              
+          
+            
+        </tr>
+    </tbody>
+   
+</table>
+
+
+<!-- <h1>Wireless Products</h1> -->
+<h3>Postpaid Products Queue</h3>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Plan Rental</th>
+        <th>Plan Validity</th>
+        <th>Total Data</th>
+        <th>voice</th>
+        <th>sms</th>
+        <th>Add on Family SIMS</th>
+        <th>Family SIM Data</th>
+        <th>Supscriptions</th>
+        <th>Admin Name</th>
+        <th>Status</th>
+        
+        <th>Choices</th>
+        <!-- <th>Delete</th> Corrected 'status' to 'Status' -->
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of WPproducts| statusfiler:statuses ; let i = index ">
+            <td  >{{p.id}}</td>
+            <td >{{p.planRental}}</td>
+            <td >{{p.planValidity}}</td>
+            <td >{{p.totalData}}</td>
+            <td >{{p.voice}}</td>
+            <td >{{p.sms}}</td>
+            <td >{{p.addOnFamilySims}}</td>
+            <td >{{p.familySimData}}</td>
+            <td >{{p.subscriptions}}</td>
+            <td >{{p.adminName}}</td>
+            <td >{{p.status}}</td>
+            <div class="button-group">
+                <td>
+                    <button class="approve"(click)="onApprove(p)"><i class="fa fa-check"></i> Approve</button>
+                    
+                    
+                <td>
+                    <button class="delete" (click)="ondelete(p)"><i class="fa fa-trash"></i> Delete</button>
+              </div>
+              
+          
+            
+        </tr>
+    </tbody>
+   
+</table>
+
+
+<h1>Wireline Products</h1>
+<h3>Prepaid Products Queue</h3>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Plan value</th>
+        <th>Plan Validity</th>
+        <th>Data</th>
+        <th>Speed</th>
+        <th>voice</th>
+        <th>Supscriptions</th>
+        <th>Other Features</th>
+        <th>Category</th>
+        <th>Admin Name</th>
+        <th>Status</th>
+        <th>Choices</th>
+        <!-- <th>Delete</th> Corrected 'status' to 'Status' -->
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of WLINEproducts| statusfiler:statuses">
+            <td  >{{p.id}}</td>
+            <td >{{p.planValue}}</td>
+            <td >{{p.planValidity}}</td>
+            <td >{{p.data}}</td>
+            <td >{{p.speed}}</td>
+            <td >{{p.voice}}</td>
+            <td >{{p.subscription|json}}</td>
+            <td >{{p.otherFeatures}}</td>
+            <td >{{p.category}}</td>
+            <td>{{p.adminName}}</td>
+            <td >{{p.status}}</td>
+            <div class="button-group">
+                <td>
+                    <button class="approve"(click)="onApproveWLinePRe(p)"><i class="fa fa-check"></i> Approve</button>
+                    
+                    
+                <td>
+                    <button class="delete" (click)="ondeleteWLinePRe(p)"><i class="fa fa-trash"></i> Delete</button>
+              </div>
+              
+          
+            
+        </tr>
+    </tbody>
+   
+</table>
+{{list|json}}
+
+
+<h3>Postpaid Products Queue</h3>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Plan value</th>
+        <th>Plan Validity</th>
+        <th>Data</th>
+        <th>Speed</th>
+        <th>voice</th>
+        <th>Supscriptions</th>
+        <th>Other Features</th>
+        <th>Category</th>
+        <th>Admin Name</th>
+        <th>Status</th>
+        <th>Choices</th>
+        <!-- <th>Delete</th> Corrected 'status' to 'Status' -->
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of WlinePro| statusfiler:statuses ; let i = index ">
+            <td  >{{p.id}}</td>
+            <td >{{p.planValue}}</td>
+            <td >{{p.planValidity}}</td>
+            <td >{{p.data}}</td>
+            <td >{{p.speed}}</td>
+            <td >{{p.voice}}</td>
+            <td >{{p.subscription|json}}</td>
+            <td >{{p.otherFeatures}}</td>
+            <td >{{p.category}}</td>
+            <td>{{p.adminName}}</td>
+            <td >{{p.status}}</td>
+            <div class="button-group">
+                <td>
+                    <button class="approve"(click)="onApproveWLinePost(p)"><i class="fa fa-check"></i> Approve</button>
+                    
+                    
+                <td>
+                    <button class="delete" (click)="ondeleteWLinePost(p)"><i class="fa fa-trash"></i> Delete</button>
+              </div>
+              
+          
+            
+        </tr>
+    </tbody>
+   
+</table>
+
+

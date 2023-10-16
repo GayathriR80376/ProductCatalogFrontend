@@ -1,0 +1,480 @@
+<div class="container-xxl bg-white p-0">
+    <!-- Spinner Start -->
+    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div> -->
+    <!-- Spinner End -->
+  
+  
+    <!-- Navbar & Hero Start -->
+    <div class="container-xxl position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0">
+                <h1 class="m-0" > <i class="bi bi-wifi"></i><b style="color: #FF0F10;">PRODUCT CATALOG</b></h1>
+                <!-- <img src="../assets/img/logo.png" alt="Logo"> -->
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <!-- <a href="/adminPage" class="nav-item nav-link active">Home</a> -->
+                    <a routerLink="/wireline" routerLinkActive="active" class="nav-item nav-link active">Wireline Plans</a>
+                    <a routerLink="/wireless" routerLinkActive="active" class="nav-item nav-link active">Wireless Plans</a>
+                    <!-- <a [routerLink]="['/business']" routerLinkActive="active"  class="nav-item nav-link">Business</a> -->
+                    <div class="nav-item dropdown">
+                        <a href="#business" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Business</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="addBusinessPlans" class="dropdown-item">Add new plan</a>
+                             <a href="business" class="dropdown-item">Existing Plan</a>
+                            <!-- <a href="comparison.html" class="dropdown-item">Comparison</a>  -->
+                        </div>
+                    </div>
+                    <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
+                </div>
+                <!-- <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+                <div class="container">
+                  <button type="button" class="btn btn-secondary py-2 px-4 ms-3" data-toggle="modal" data-target="#loginModal" routerLink="/login" >
+                    Login
+                  </button> 
+                </div>  -->
+                <a href="" class="btn btn-secondary py-2 px-4 ms-3" >LOGIN out</a>
+            </div>
+        </nav>
+  
+        <div class="container-xxl py-5 bg-primary hero-header mb-5">
+            <div class="container my-5 py-5 px-lg-5">
+                <div class="row g-5">
+                    <div class="col-lg-6 pt-5 text-center text-lg-start">
+                        <h3 class="display-4 text-white mb-4 animated slideInLeft">Business Plans</h3>
+                        <!-- <p class="text-white animated slideInLeft">Access to computers and the Internet has become a basic need for education in our society..</p>
+                        <h1 class="text-white mb-4 animated slideInLeft">
+                            <small class="align-top fw-normal" style="font-size: 15px; line-height: 25px;">Welcome Admin:</small>
+                            <span>$2.49</span>
+                            <small class="align-bottom fw-normal" style="font-size: 15px; line-height: 33px;">/ Mo</small>
+                        </h1>
+                        <a href="" class="btn btn-secondary py-sm-3 px-sm-5 me-3 animated slideInLeft">Go To User Page...</a> -->
+                    </div>
+                    <!-- <div class="col-lg-6 text-center text-lg-start">
+                        <img class="img-fluid animated zoomIn" src="../assets/img/aicon.png" alt="">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style> -->
+  <style>
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    column-gap: 20px;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+
+    <h1>Business Plans</h1>
+    <p class="lead">Business level plans for the business world needs.</p>
+    <!-- <p></p> <code>.themed-grid-col</code> class is added to the columns to add some theming. This is not a class that is available in Bootstrap by default.</p> -->
+
+
+
+    <!-- <div style="overflow-y:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Features</th>
+              <th *ngFor="let p of products">{{ p.plan }}</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let p of products">
+            <tr *ngFor="let h of p.highSpeedInt; let i = index">
+              <td>{{ i === 0 ? 'High-Speed Internet' : '' }}</td>
+              <td *ngFor="let p of products">{{ h }}</td>
+            </tr>
+            <tr *ngFor="let v of p.voice; let i = index">
+              <td>{{ i === 0 ? 'Voice' : '' }}</td>
+              <td *ngFor="let p of products">{{ v }}</td>
+            </tr>
+             Add similar rows for other features -->
+          <!-- </tbody>
+        </table>
+      </div> --> 
+      
+<!-- 
+
+
+   
+         <div style="overflow-x:auto;">
+            <table  >
+                <thead>
+                <th >Features</th>
+                <th *ngFor="let p of products">{{p.plan}}</th>
+            </thead>
+            <tbody *ngFor="let p of products">
+              <tr *ngFor="let h of p.highSpeedInt;let i = index">
+                <td>{{ i === 0 ? 'High-Speed Internet' : '' }}</td>
+                <td *ngFor="let p of products">{{h}}</td></tr>
+                <tr *ngFor="let v of p.voice;let i = index">
+                    <td>{{ i === 0 ? 'voice' : '' }}</td>
+                    <td *ngFor="let p of products">{{v}}</td></tr>
+                    <tr *ngFor="let pr of p.productivity ;let i = index">
+                        <td>{{ i === 0 ? 'productivity' : '' }}</td>
+                        <td *ngFor="let p of products">{{pr}}</td></tr>
+                        <tr *ngFor="let c of p.conferencing ;let i = index">
+                            <td>{{ i === 0 ? 'conferencing' : '' }}</td>
+                            <td *ngFor="let p of products">{{c}}</td></tr>
+                            <tr *ngFor="let d of p.data ;let i = index">
+                                <td>{{ i === 0 ? 'data' : '' }}</td>
+                                <td *ngFor="let p of products">{{d}}</td></tr>
+                                <tr *ngFor="let de of p.devices;let i = index">
+                                    <td>{{ i === 0 ? 'devices' : '' }}</td>
+                                    <td *ngFor="let p of products">{{de}}</td></tr>
+                                    <tr *ngFor="let pay of p.payType;let i = index">
+                                        <td>{{ i === 0 ? 'payment type' : '' }}</td>
+                                        <td *ngFor="let p of products">{{pay}}</td></tr>
+                                        <tr *ngFor="let o of p.offer;let i = index">
+                                            <td>{{ i === 0 ? 'offer' : '' }}</td>
+                                            <td *ngFor="let p of products">{{o}}</td></tr>
+              
+             
+           
+                                        </tbody>                     
+            </table>
+          </div> -->
+
+<!-- 
+
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <th>Features</th>
+                <th *ngFor="let p of products">{{ p.plan }}</th>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let feature of ['highSpeedInt', 'voice', 'productivity', 'conferencing', 'data', 'devices', 'payType', 'offer']">
+                  <tr *ngFor="let item of products[0][feature]; let i = index">
+                    <td *ngIf="i === 0">{{ feature }}</td>
+                    <td *ngFor="let p of products">{{ p[feature][i] }}</td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div> -->
+          
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <th>Features</th>
+                <ng-container *ngFor="let p of products">
+                  <th>{{ p.plan }}</th>
+                </ng-container>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let feature of ['highSpeedInt', 'voice', 'productivity', 'conferencing', 'data', 'devices', 'payType', 'offer']">
+                  <tr>
+                    <td>{{ feature }}</td>
+                    <ng-container *ngFor="let p of products">
+                      <td>
+                        <ng-container *ngIf="p[feature] && p[feature][0]">{{ p[feature][0] }}</ng-container>
+                        <ng-container *ngIf="p[feature] && p[feature][0]">{{ p[feature][1] }}</ng-container>
+                        <ng-container *ngIf="!p[feature]">-</ng-container>
+                      </td>
+                    </ng-container>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          
+
+
+
+
+
+
+
+<!-- 
+          <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Features</th>
+                  <th *ngFor="let p of products">{{ p.plan }}</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let p of products">
+                <ng-container *ngFor="let feature of ['highSpeedInt', 'voice', 'productivity', 'conferencing', 'data', 'devices', 'payType', 'offer']">
+                  <ng-container *ngIf="p[feature] && p[feature].length > 0">
+                    <tr>
+                      <td (click)="toggleExpansion(p, feature)">{{ feature }}</td>
+                      <td *ngFor="let _ of products"></td> Empty cells for spacing -->
+                     <!-- </tr>
+                    <tr *ngIf="isExpanded(p, feature)">
+                      <td colspan="{{ products.length + 1 }}">
+                        <div *ngFor="let item of p[feature]; let i = index">
+                          {{ i === 0 ? item : '' }}
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </ng-container>
+              </tbody>
+            </table> 
+          </div>   -->
+          
+
+          <!-- <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Features</th>
+                  <th *ngFor="let p of products">{{ p.plan }}</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let feature of features">
+                <tr>
+                  <td (click)="toggleExpansion(feature)">{{ feature.name }}</td>
+                  <td *ngFor="let p of products">{{ feature.value }}</td>
+                </tr>
+                <tr *ngIf="isExpanded(feature)">
+                  <td colspan="{{ products.length + 1 }}">
+                    <div *ngFor="let subFeature of feature.subFeatures">
+                      {{ subFeature.name }}: {{ subFeature.value }}
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
+
+          <!-- <div style="overflow-x:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Features</th>
+                  <th *ngFor="let p of products">{{ p.plan }}</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let p of products">
+                <ng-container *ngFor="let feature of ['highSpeedInt', 'voice', 'productivity', 'conferencing', 'data', 'devices', 'payType', 'offer']">
+                  <ng-container *ngIf="p[feature] && p[feature].length > 0">
+                    <tr>
+                      <td (click)="toggleExpansion(p, feature)">{{ feature }}</td>
+                      <td *ngFor="let _ of products"></td> Empty cells for spacing -->
+                    <!-- </tr>
+                    <tr *ngIf="isExpanded(p, feature)">
+                      <ng-container *ngFor="let _ of products; let i = index">
+                        <td *ngIf="i === 0" [attr.colspan]="products.length">
+                          <div *ngFor="let item of p[feature]">
+                            {{ item }}
+                          </div>
+                        </td>
+                      </ng-container>
+                    </tr>
+                  </ng-container>
+                </ng-container>
+              </tbody>
+            </table>
+          </div> --> 
+          
+          
+
+
+
+
+
+
+
+
+
+
+         <!-- <table> 
+            <thead>
+                <th>Features</th>
+                <th>4999 plan</th>
+                    <th>7999 plan</th>
+                    <th>9999 plan</th>
+                
+            </thead>
+            <tbody>
+                <tr>
+                    <td><div  class="col themed-grid-col"><code>Download = Upload Speed</code></div></td>
+                    <td><div class="col themed-grid-col"><code>1 Gpbs</code></div></td>
+                    <td><div class="col themed-grid-col"><code>1 Gpbs</code></div></td>
+                    <td><div class="col themed-grid-col"><code>1 Gbps</code></div></td>
+                </tr>
+                <tr>
+                    <td><div  class="col themed-grid-col"><code>Speed post FUP</code></div></td>
+                    <td><div class="col themed-grid-col"><code>2 Mpbs</code></div></td>
+                    <td><div class="col themed-grid-col"><code>2 Mpbs</code></div></td>
+                    <td><div class="col themed-grid-col"><code>2 Mbps</code></div></td>
+                </tr>
+                <tr>
+                    <td><div  class="col themed-grid-col"><code>JioMeet Licenses Secure video conferencing</code></div></td>
+                    <td><div class="col themed-grid-col"><code>2 </code></div></td>
+                    <td><div class="col themed-grid-col"><code>3 </code></div></td>
+                    <td><div class="col themed-grid-col"><code>4 </code></div></td>
+                </tr>
+                <tr>
+                    <td><div  class="col themed-grid-col"><code>JioAttendance Licenses Manage employees remotely</code></div></td>
+                    <td><div class="col themed-grid-col"><code>5</code></div></td>
+                    <td><div class="col themed-grid-col"><code>10 </code></div></td>
+                    <td><div class="col themed-grid-col"><code>10</code></div></td>
+                </tr>
+                <tr>
+                    <td><div  class="col themed-grid-col"><code>JioAttendance Licenses Manage employees remotely</code></div></td>
+                    <td><div class="col themed-grid-col"><code>5</code></div></td>
+                    <td><div class="col themed-grid-col"><code>10 </code></div></td>
+                    <td><div class="col themed-grid-col"><code>10</code></div></td>
+                </tr>
+                <tr>
+                    <td><div  class="col themed-grid-col"><code>One-time refundable security deposit</code></div></td>
+                    <td><div class="col themed-grid-col"><code>500</code></div></td>
+                    <td><div class="col themed-grid-col"><code>1700 </code></div></td>
+                    <td><div class="col themed-grid-col"><code>2700</code></div></td>
+                </tr>
+                <tr>
+                    <td><div  class="col themed-grid-col"><code>Monthly</code></div></td>
+                    <td><div class="col themed-grid-col"><code>4999</code></div></td>
+                    <td><div class="col themed-grid-col"><code>7999 </code></div></td>
+                    <td><div class="col themed-grid-col"><code>9999</code></div></td>
+                </tr>
+                <tr>
+                    <td><div  class="col themed-grid-col"><code>Quartly</code></div></td>
+                    <td><div class="col themed-grid-col"><code>14,997</code></div></td>
+                    <td><div class="col themed-grid-col"><code> 23,997</code></div></td>
+                    <td><div class="col themed-grid-col"><code>29,997</code></div></td>
+                </tr>
+                <tr>
+                    <td><div  class="col themed-grid-col"><code>HalfYearly</code></div></td>
+                    <td><div class="col themed-grid-col"><code>29,994</code></div></td>
+                    <td><div class="col themed-grid-col"><code>47,994  </code></div></td>
+                    <td><div class="col themed-grid-col"><code>59,994</code></div></td>
+                </tr>
+                <tr>
+                    <td><div  class="col themed-grid-col"><code>Yearly</code></div></td>
+                    <td><div class="col themed-grid-col"><code>59,998</code></div></td>
+                    <td><div class="col themed-grid-col"><code>95,998 </code></div></td>
+                    <td><div class="col themed-grid-col"><code>1,19,998</code></div></td>
+                </tr>
+            </tbody>
+        </table>  -->
+
+        <!-- <h2 class="mt-4">Gutters</h2>
+        <p>With <code>.gx-*</code> classes, the horizontal gutters can be adjusted.</p>
+        <div class="row row-cols-1 row-cols-md-3 gx-4">
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+          
+        </div>
+        <div class="row row-cols-2 row-cols-md-1 gx-1">
+          <div class="col themed-grid-col"><code>.col</code> with <code>.gx-4</code> gutters</div>
+        </div> -->
+    </div>
+
+    <!-- Footer Start -->
+  <div class="container-fluid bg-primary text-white footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5 px-lg-5">
+        <div class="row gy-5 gx-4 pt-5">
+            <div class="col-12">
+                <h5 class="fw-bold text-white mb-4">Subscribe Our Newsletter</h5>
+                <div class="position-relative" style="max-width: 400px;">
+                    <input class="form-control bg-white border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
+                    <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="row gy-5 g-4">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold text-white mb-4">About Us</h5>
+                        <a class="btn btn-link" href="">About Us</a>
+                        <a class="btn btn-link" href="">Contact Us</a>
+                        <a class="btn btn-link" href="">Privacy Policy</a>
+                        <a class="btn btn-link" href="">Terms & Condition</a>
+                        <a class="btn btn-link" href="">Support</a>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold text-white mb-4">Our Services</h5>
+                        <a class="btn btn-link" href="">Domain Register</a>
+                        <a class="btn btn-link" href="">Shared Hosting</a>
+                        <a class="btn btn-link" href="">VPS Hosting</a>
+                        <a class="btn btn-link" href="">Dedicated Hosting</a>
+                        <a class="btn btn-link" href="">Reseller Hosting</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <h5 class="fw-bold text-white mb-4">Get In Touch</h5>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mt-lg-n5">
+                <div class="bg-light rounded" style="padding: 30px;">
+                    <input type="text" class="form-control border-0 py-2 mb-2" placeholder="Name">
+                    <input type="email" class="form-control border-0 py-2 mb-2" placeholder="Email">
+                    <textarea class="form-control border-0 mb-2" rows="2" placeholder="Message"></textarea>
+                    <button class="btn btn-primary w-100 py-2">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container px-lg-5">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+      
+      <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+      Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="">Home</a>
+                        <a href="">Cookies</a>
+                        <a href="">Help</a>
+                        <a href="">FQAs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <router-outlet></router-outlet> -->
