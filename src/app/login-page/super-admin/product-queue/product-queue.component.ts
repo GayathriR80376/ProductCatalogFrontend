@@ -17,6 +17,7 @@ export class ProductQueueComponent {
   WPreproducts:any;
   WLINEproducts:any;
   WlinePro:any;
+  business:any;
 
   list:any;
   statuses:any="Not-Approved"
