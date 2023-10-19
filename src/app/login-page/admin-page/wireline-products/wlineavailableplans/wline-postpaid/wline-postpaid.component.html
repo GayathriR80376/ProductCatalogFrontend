@@ -83,7 +83,7 @@
     </div>
 <!-- navbar ends -->
 <!-- Full Screen Search Start -->
-<div class="modal fade" id="searchModal" tabindex="-1">
+<!-- <div class="modal fade" id="searchModal" tabindex="-1">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content" style="background: rgba(29, 40, 51, 0.8);">
             <div class="modal-header border-0">
@@ -97,11 +97,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
      <!-- Pricing Start -->
 
-     {{products|json}}
+     <!-- {{products|json}}
      <div class="container-xxl py-5">
         <div class="container px-lg-5">
             <div class="section-title position-relative text-center mx-auto mb-5 pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -216,18 +216,76 @@
 
             </div>
         </div>
+    </div> -->
+    
+    <!-- <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen"> 
+            <div class="modal-content" style="background: rgba(29, 40, 51, 0.8);">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex align-items-center justify-content-center">
+                    <div class="input-group" style="max-width: 600px;">
+                        <input type="text" class="form-control bg-transparent border-light p-3" [(ngModel)]="search" placeholder="Type search keyword">
+                        <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>  -->
+    <!-- <div class="row justify-content-center">
+    <button type="button" class="btn text-secondary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal" (click)="onsearch()"><i class="fa fa-search"></i></button>
+</div>
+
+<div *ngIf="valid"> -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="search" class="form-control py-2 border-right-0" id="searchInput" [(ngModel)]="search"  placeholder="Search...">
+          <span class="input-group-append">
+            <button class="btn btn-outline-secondary border-left-0" type="button" id="searchButton">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </div>
     </div>
-
-
+  <!-- </div> -->
+  {{search}}
+</div>
     <!-- iteration starts -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <div class="input-group">
+    <select    class="nav-link dropdown-toggle" style="width: 515px;"  data-bs-toggle="dropdown"  [(ngModel)]="cat1" name="cat1">
+        <!-- <div class="dropdown-menu mb-md-4"> -->
+            <option value="" disabled >Filter category</option>
+            <option value="Postpaid Plans">Postpaid Plans</option> 
+           <option value="Annual">Annual</option> 
+            <option value="Semi-Annual ">Semi-Annual</option>
+            <option value="Quarterly">Quarterly</option>
+            <option value="Monthly">Monthly</option>
+        <!-- </div> -->
+    <!-- </div> -->
+        </select>
+        </div>
+    </div>
+        </div>
+        </div>{{an}}
     <div class="container-xxl py-5">
         <div class="container px-lg-5">
             <div class="section-title position-relative text-center mx-auto mb-5 pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3"><span style="color: #FF0F10;">Our </span><span style="color: blueviolet;">pOSTpAID </span><span style="color:#FF0F10">Plans</span></h1>
+                <h1 class="mb-3"><span style="color: #FF0F10;">Our </span><span style="color: blueviolet;">{{cat1}} </span><span style="color:#FF0F10">Plans</span></h1>
                 <p class="mb-1">Vero justo sed sed vero clita amet. Et justo vero sea diam elitr amet ipsum eos ipsum clita duo sed. Sed vero sea diam erat vero elitr sit clita.</p>
             </div>
+            <!-- <div class="section-title position-relative text-center mx-auto mb-5 pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="mb-3">{{cat1}}</h1> -->
+                <!-- <p class="mb-1">Vero justo sed sed vero clita amet. Et justo vero sea diam elitr amet ipsum eos ipsum clita duo sed. Sed vero sea diam erat vero elitr sit clita.</p> -->
+            <!-- </div> -->
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of products">
+                <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of products | adminNameFilter:an| filterWlineCategory:cat1 |searchFilter:search">
                     <div class="card-body d-flex flex-column justify-content-between">
                         <div class="card">
    <div class="row gy-5 gx-4">
@@ -257,8 +315,8 @@
                         class="align-bottom" style="font-size: 16px; line-height: 40px;"></small>
                 </h1>
                 <!-- <a class="btn btn-secondary px-4 py-2" href="">Buy Now</a> -->
-                <a class="btn btn-primary px-4 py-2" href="">Edit Now</a><br><br>
-                <a class="btn btn-secondary px-4 py-2" href="">delete Now</a>
+                <a class="btn btn-primary px-4 py-2" href="" data-toggle="modal" data-target="#loginModal" (click)="editNow(p.id)">Edit Now</a><br><br>
+                <a class="btn btn-secondary px-4 py-2" href="" (click)="deletenow(p)">delete Now</a>
             </div>
             <div class="p-4">
                 <p class="border-bottom pb-3"><i class="fa fa-check text-primary me-3"></i>Plan Rental ₹{{p.planValue}}</p>
@@ -278,6 +336,121 @@
     </div>
     </div>
     </div>
+    <!-- <editing> -->
+       
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Editing</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                              </button>
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button> -->
+                        </div>
+                        <div *ngFor="let p of editProducts">
+                        <div class="modal-body">
+                            <form id="frm_popupLogin">
+                                <div class="row g-3">
+                                   
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" name="pv" [(ngModel)]="p.planValue" placeholder="Your Email" [value]="p.planValue">
+                                            <label for="email">Plan Value</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="name" name="pval" [(ngModel)]="p.planValidity" [value]="p.planValidity" placeholder="Your Name">
+                                            <label for="name">Plan Validity</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" name="td" [(ngModel)]="p.data" placeholder="DATA" [value]="p.data">
+                                            <label >Data</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" name="speed" [(ngModel)]="p.speed" [value]="p.speed" placeholder="Your Email">
+                                            <label for="email">Speed</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" name="voi" [(ngModel)]="p.voice" [value]="p.voice" placeholder="Your Email">
+                                            <label for="email">Voice</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <div class="nav-item dropdown">
+                                                <select    class="nav-link dropdown-toggle" style="width: 225px;"  data-bs-toggle="dropdown"  [(ngModel)]="p.category" [value]="p.category"  name="category">
+                                                <!-- <div class="dropdown-menu mb-md-4"> -->
+                                                    <option value="" disabled >Filter category</option>
+                                                   <option value="Annual">Annual</option> 
+                                                    <option value="Semi-Annual ">Semi-Annual</option>
+                                                    <option value="Quarterly">Quarterly</option>
+                                                    <option value="Monthly">Monthly</option>
+                                                <!-- </div> -->
+                                            <!-- </div> -->
+                                                </select>
+                                            <!-- <input type="email" class="form-control" id="email" name="category" [(ngModel)]="category" placeholder="Your Email">
+                                            <label for="email">category</label>-->
+                                        </div> 
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="name" name="an" [(ngModel)]="p.adminName" [value]="p.adminName" placeholder="Your Name" disabled>
+                                            <label for="name">Username</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 row-3">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="name" name="others" [(ngModel)]="p.otherFeatures" [value]="p.otherFeatures" placeholder="Your Name">
+                                            <label for="name">Other Features</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <div class="form-check form-check-inline" *ngFor="let ps of p.subscription">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" disabled checked="true" [value]="ps.productName">
+                                                <label class="form-check-label" for="inlineCheckbox1" >{{ps.productName}}</label>
+                                              </div>
+                                             
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <div class="form-check form-check-inline" *ngFor="let s of subproduct">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" [value]="s.productName" (change)="checkedSubProduct(s)">
+                                                <label class="form-check-label" for="inlineCheckbox1" >{{s.productName}}</label>
+                                              </div>
+                                             
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" type="submit"  (click)="onEditsubmit(p)">Edit OK</button>
+                                    </div>
+                                </div>
+                               
+                                <!-- <div *ngIf="valid">
+                                {{list|json}}
+                                {{value}} -->
+                            
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- </editing> --> 
     
     <!-- Pricing End -->
 

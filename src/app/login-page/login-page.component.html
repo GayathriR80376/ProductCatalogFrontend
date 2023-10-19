@@ -55,7 +55,7 @@
                             <span>$2.49</span>
                             <small class="align-bottom fw-normal" style="font-size: 15px; line-height: 33px;">/ Mo</small>
                         </h1> -->
-                        <a href="" class="btn btn-secondary py-sm-3 px-sm-5 me-3 animated slideInLeft"data-toggle="modal" data-target="#loginModal">LOGIN</a>
+                        <a href="" class="btn btn-secondary py-sm-3 px-sm-5 me-3 animated slideInLeft"data-toggle="modal" data-target="#loginModal" (click)="login()">LOGIN</a>
                     </div>
                     <div class="col-lg-6 text-center text-lg-start">
                         <img class="img-fluid animated zoomIn" src="../assets/img/hero.png" alt="">
@@ -66,45 +66,46 @@
     </div>
   
     <!-- login page -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header border-bottom-0">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
+            </button> -->
+          <!-- </div> -->
+          <!-- <div class="modal-body"> -->
+            <!-- <div class="row g-3">
             <div class="form-title text-center">
               <h4>Login</h4>
             </div>
             <div class="d-flex flex-column text-center">
-              <form class="was-validated" #profrom="ngForm" >
+              <form class="was-validated" #profrom="ngForm" > -->
                   <!-- <div class="col-md-6 col-lg-4 mt-lg-n5">
                       <div class="bg-light rounded" style="padding: 30px;"> -->
-                          <div class="row mb-3">
-                          <input type="text" class="form-control border-2 py-2 mb-2" placeholder="Name" [(ngModel)]="name" name="uname" #uname="ngModel"  required >
+                          <!-- <div class="row d-0">
+                          <input type="text" class="form-control border-2 py-2 mb-2" placeholder="Username" [(ngModel)]="name" name="uname" #uname="ngModel"  required > -->
                            <!-- <div  class="valid-feedback">Valid.</div>
                            <div class="invalid-feedback">Please fill out this field.</div> -->
-                          </div>
+                          <!-- </div>
                           <div class="row mb-3">
-                          <input type="email" class="form-control border-2 py-2 mb-2" placeholder="Email" required [(ngModel)]="email" name="uemail" #uemail="ngModel">
+                          <input type="email" class="form-control border-2 py-2 mb-2" placeholder="Email" required [(ngModel)]="email" name="uemail" #uemail="ngModel"> -->
                           <!-- <div  class="valid-feedback">Valid.</div>
                           <div class="invalid-feedback">Please fill out this field.</div> -->
-                        </div>
+                        <!-- </div>
                           <div class="row mb-3">
-                          <input type="password" class="form-control border-2 mb-2"  placeholder="Your password..."  required  [(ngModel)]="pass" name="upass" #upass="ngModel"> 
+                          <input type="password" class="form-control border-2 mb-2"  placeholder="Your password..."  required  [(ngModel)]="pass" name="upass" #upass="ngModel">  -->
                           <!-- <div  class="valid-feedback">Valid.</div>
                           <div class="invalid-feedback">Please fill out this field.</div> -->
-                        </div>
+                        <!-- </div> -->
                   
                       
                         <!-- <div class="row mb-3"> -->
-                          <button type="submit" class="btn btn-primary w-100 py-2"     [disabled]="profrom.form.invalid" (click)="datasubmitted(name,email,pass)"> Login</button>
+                          <!-- <button type="submit" class="btn btn-primary w-100 py-2"     [disabled]="profrom.form.invalid" (click)="datasubmitted(name,email,pass)"> Login</button> -->
                           <!-- <div   class="text-success"   *ngIf="valid" routerLink="/adminPage"><b><i class="bi bi-unlock">logged in successful</i></b></div>   -->
-                          <div   class="text-success"   *ngIf="valid"><b><i class="bi bi-unlock">logged in successful</i></b></div>  
-                          <div   class="text-success"   *ngIf="!valid" ><b>invalid log in</b></div>  
-                          {{name}}   
+                          <!-- <div   class="text-success"   *ngIf="valid"><b><i class="bi bi-unlock">logged in successful</i></b></div>   -->
+                          <!-- <div   class="text-success"   *ngIf="!valid" ><b>invalid log in</b></div>   -->
+                          <!-- {{name}}    -->
                           <!-- </div> -->
                       <!-- </div> -->
                   <!-- </div> -->
@@ -129,12 +130,47 @@
                   <i class="fab fa-linkedin"></i>
                 </button>
             </div> -->
-          </form>
-          </div>
-        </div>
-          <div class="modal-footer d-flex justify-content-center">
+          <!-- </form> -->
+          <!-- </div> -->
+        <!-- </div> -->
+          <!-- <div class="modal-footer d-flex justify-content-center">
             <div class="signup-section">Not a member yet? <a href="#a" class="text-info"> Sign Up</a>.</div>
           </div>
+          </div> -->
+      <!-- </div>
+    </div>
+  </div> -->
+  <div *ngIf="approve">
+  <div class="row g-3 justify-content-center"> <!-- Center the form -->
+    <div class="col-12 col-md-8 col-lg-6"> <!-- Adjust column sizes for responsiveness -->
+      <div class="form-title text-center mb-4"> <!-- Add some margin at the bottom -->
+        <h1 style="color: #FF0F10;">Heyyy Login Here To Go....</h1>
+      </div>
+      <div class="d-flex flex-column text-center">
+        <form class="was-validated" #profrom="ngForm">
+          <!-- <div class="row mb-3">
+            <input type="text" class="form-control py-2" placeholder="Username" [(ngModel)]="name" name="uname" #uname="ngModel" required>
+          </div> -->
+          <div class="row mb-3">
+            <input type="email" class="form-control py-2" placeholder="Email" required [(ngModel)]="email" name="uemail" #uemail="ngModel">
+          </div>
+          <div class="row mb-3">
+            <input type="password" class="form-control py-2" placeholder="Your password..." required  [(ngModel)]="pass" name="upass" #upass="ngModel">
+          </div>
+          <div class="row mb-3">
+            <button type="submit" class="btn btn-primary w-100 py-2" [disabled]="profrom.form.invalid" (click)="datasubmitted(email,pass)">Login</button>
+          </div>
+          <div class="row mb-3 text-success" *ngIf="v">
+            <b><i class="bi bi-unlock">logged in successful</i></b>
+          </div>
+          <div class="row mb-3 text-success" *ngIf="!v">
+            <b>invalid log in</b>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+  <!-- <div class="modal-footer d-flex justify-content-center">
+    <div class="signup-section">Not a member yet? <a href="#a" class="text-info"> Sign Up</a>.</div>
+  </div> -->
+</div>

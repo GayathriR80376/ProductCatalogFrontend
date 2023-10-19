@@ -1,6 +1,6 @@
 export class WlessPrepaid
 {
-    constructor(public id:any,public planvaluel:String,public planvalidity:String,public totaldata:String,public dataperday:String,public voice:String,public sms:String,public subscriptions:String[],public adminname:String,public status:String)
+    constructor(public id:any,public planValue:String,public planvalidity:String,public totaldata:String,public dataperday:String,public voice:String,public sms:String,public subscriptions:String[],public adminName:String,public status:String)
     {
 
     }
@@ -27,7 +27,7 @@ export class Subscription
 
 export class WlessPrepaidRequest
 {
-    constructor(public planvaluel:String,public planvalidity:String,public totaldata:String,public dataperday:String,public voice:String,public sms:String,public subscriptions:String[],public adminname:String,public status:String)
+    constructor(public planValue:String,public planvalidity:String,public totaldata:String,public dataperday:String,public voice:String,public sms:String,public subscriptions:String[],public adminName:String,public status:String)
     {
 
     }

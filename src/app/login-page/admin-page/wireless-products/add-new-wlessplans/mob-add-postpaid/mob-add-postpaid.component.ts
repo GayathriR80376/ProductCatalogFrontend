@@ -19,7 +19,7 @@ export class MobAddPostpaidComponent {
   add:any;
   fdata:any;
   subproducts:String[]=[];
-  an:any;
+  an:any=JSON.parse(localStorage.getItem('username')+'');;
   status:String="Not-Approved"
   products :any;
  
@@ -38,7 +38,7 @@ export class MobAddPostpaidComponent {
   onsubmit()
  {
  
-  this.products=new wlineRequest(this.pvu,this.pval,this.tot,this.voi,this.sms,this.add,this.fdata,this.getCheckboxValues(),this.aservice.getUsername(),this.status);
+  this.products=new wlineRequest(this.pvu,this.pval,this.tot,this.voi,this.sms,this.add,this.fdata,this.getCheckboxValues(),this.an,this.status);
   this.service.postPostpaid(this.products).subscribe();
  }
 

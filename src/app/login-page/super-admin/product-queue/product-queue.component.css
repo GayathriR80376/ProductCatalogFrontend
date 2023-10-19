@@ -407,4 +407,110 @@
       opacity: 1;
     }
   }
+
+
+
+  .custom-list {
+    list-style: none; /* Remove default bullets */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .custom-list li::before {
+    content: "\2022"; /* Unicode character for bullet point (•) */
+    margin-right: 5px; /* Add some space between the bullet and the text */
+  }
+  
+  .custom-list.custom-list1 li:nth-child(1)::before {
+    content: "Monthly";
+  }
+  
+  .custom-list.custom-list1 li:nth-child(2)::before {
+    content: "Quarterly";
+  }
+  
+  .custom-list.custom-list1 li:nth-child(3)::before {
+    content: "HalfYearly";
+    
+  }
+  .custom-list.custom-list1 li:nth-child(4)::before {
+    content: "Annual";
+    
+  }
+
+  /* custom list 2 */
+
+  .custom-list li::before {
+    content: "\2022"; /* Unicode character for bullet point (•) */
+    margin-right: 5px; /* Add some space between the bullet and the text */
+  }
+  
+  .custom-list.custom-list2 li:nth-child(1)::before {
+    content: "Quarterly";
+  }
+  
+  .custom-list.custom-list2 li:nth-child(2)::before {
+    content: "HalfYearly";
+  }
+  
+  .custom-list.custom-list2 li:nth-child(3)::before {
+    content: "Annual";
+    
+  }
+
+  
+  /* custom list 3 high speed internet */
+
+  .custom-list li::before {
+    content: "\2022"; /* Unicode character for bullet point (•) */
+    margin-right: 5px; /* Add some space between the bullet and the text */
+  }
+  
+  .custom-list.custom-list3 li:nth-child(1)::before {
+    content: "Download=upload speed";
+  }
+  
+  .custom-list.custom-list3 li:nth-child(2)::before {
+    content: "Speed post FUP";
+  }
+  
+  .custom-list.custom-list3 li:nth-child(3)::before {
+    content: "TStatic IP";
+    
+  }
+
+   /* custom list 4 voice */
+
+   .custom-list li::before {
+    content: "\2022"; /* Unicode character for bullet point (•) */
+    margin-right: 5px; /* Add some space between the bullet and the text */
+  }
+  
+  .custom-list.custom-list4 li:nth-child(1)::before {
+    content: "IP Centrex Lines";
+  }
+  
+  .custom-list.custom-list4 li:nth-child(2)::before {
+    content: "Parallel Ringing";
+  }
+  
+  
+   /* custom list 5 voice */
+
+   .custom-list li::before {
+    content: "\2022"; /* Unicode character for bullet point (•) */
+    margin-right: 5px; /* Add some space between the bullet and the text */
+  }
+  
+  .custom-list.custom-list5 li:nth-child(1)::before {
+    content: "Business GateWay";
+  }
+  
+  .custom-list.custom-list5 li:nth-child(2)::before {
+    content: "Voice GateWay";
+  }
+    
+  
+
+  
+  
   

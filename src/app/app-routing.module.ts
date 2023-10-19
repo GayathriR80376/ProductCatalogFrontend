@@ -22,6 +22,8 @@ import { SuperAdminComponent } from './login-page/super-admin/super-admin.compon
 import { AddBussPlanComponent } from './login-page/admin-page/business/add-buss-plan/add-buss-plan.component';
 import { AdminslistComponent } from './login-page/super-admin/adminslist/adminslist.component';
 import { ProductQueueComponent } from './login-page/super-admin/product-queue/product-queue.component';
+import { UseridValidateComponent } from './login-page/userid-validate/userid-validate.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   {
@@ -29,8 +31,20 @@ const routes: Routes = [
     component:LoginPageComponent
   },
   {
+     path:"gotologin",
+     component:LoginPageComponent
+  },
+  {
     path:"adminPage",
     component:AdminPageComponent
+  },
+  {
+   path:"logout",
+   component:LogoutComponent
+  },
+  {
+    path:"useridValidate",
+    component:UseridValidateComponent
   },
   {
     path:"wireline",

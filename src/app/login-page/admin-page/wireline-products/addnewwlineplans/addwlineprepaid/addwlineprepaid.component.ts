@@ -19,7 +19,7 @@ export class AddwlineprepaidComponent implements OnInit {
   category:any;
   
 
-  an:any;
+  an:any=JSON.parse(localStorage.getItem('username')+'');
   valid=false
   list:any;
   value:String[]=[];
@@ -46,7 +46,7 @@ export class AddwlineprepaidComponent implements OnInit {
   }
   ngOnInit()
    {
-    this.an= this.eservice.getUsername();
+    // this.an= this.eservice.getUsername();
     // this.service.getsubproducts().subscribe((pro)=>{this.subproduct=pro})
     
   }

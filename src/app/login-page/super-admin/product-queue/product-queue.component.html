@@ -233,6 +233,54 @@
                 <td>
                     <button class="delete" (click)="ondeleteWLinePost(p)"><i class="fa fa-trash"></i> Delete</button>
               </div>
+        </tr>
+    </tbody>
+   
+</table>
+
+
+<h1>Business Products</h1>
+<h3> Products in  Queue</h3>
+<table>
+    <thead>
+        <th>id</th>
+        <th>Plan</th>
+        <th>high Speed</th>
+        <th>voice</th>
+        <th>Productivity</th>
+        <th>conferencing</th>
+        <th>Devices</th>
+        <th>data</th>
+        <th>pay type
+        </th>
+        <th>offer</th>
+        <th>Admin Name</th>
+        <th>Status</th>
+        <th>Choices</th>
+        <!-- <th>Delete</th> Corrected 'status' to 'Status' -->
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of business |statusfiler:statuses ">
+            <td  >{{p.id}}</td>
+            <td >{{p.plan}}</td>
+            <td ><ul  class="custom-list custom-list3"><li  *ngFor="let py of p.highSpeedInt"> {{py}}</li></ul></td>
+            <td ><ul  class="custom-list custom-list4"><li  *ngFor="let py of p.voice"> {{py}}</li></ul></td>
+            <td >{{p.productivity}}</td>
+            <td >{{p.conferencing}}</td>
+            <td ><ul  class="custom-list custom-list5"><li  *ngFor="let py of p.devices"> {{py}}</li></ul></td>
+            <td ><ul  class="custom-list custom-list2"><li  *ngFor="let py of p.data"> {{py}}</li></ul></td>
+            <td > <ul  class="custom-list custom-list1"><li  *ngFor="let py of p.payType"> {{py}}</li></ul></td>
+            <td>{{p.offer}}</td>
+            <td >{{p.adminName}}</td>
+            <td >{{p.status}}</td>
+            <div class="button-group">
+                <td>
+                    <button class="approve"(click)="onApproveBus(p)"><i class="fa fa-check"></i> Approve</button>
+                    
+                    
+                <td>
+                    <button class="delete" (click)="ondeleteBus(p)"><i class="fa fa-trash"></i> Delete</button>
+              </div>
               
           
             
@@ -242,3 +290,6 @@
 </table>
 
 
+
+
+  

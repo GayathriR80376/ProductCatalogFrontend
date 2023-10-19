@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { RouterTestingHarness } from '@angular/router/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -51,4 +52,12 @@ deleteWirelinePostpaid(products:any)
   return this.http.post("http://localhost:9091/Wireline/deleteWlinePostPaid",products)
 } 
 
+editBusinessPlans(products:any)
+{
+  return this.http.post("http://localhost:9093/business/editBusinessPlans",products)
+}
+deleteBusinessPlans(products:any)
+{
+  return this.http.post("http://localhost:9093/business/deleteBusinessPlans",products)
+}
 }

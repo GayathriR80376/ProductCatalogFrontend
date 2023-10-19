@@ -9,44 +9,96 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent {
   title = 'SamplePC';
-  valid:boolean=false;
+  valid:any[]=[];
   name:any;
   pass:any;
   email:any;
   username:any;
+  approve:boolean=false;
+  v:boolean=false;
   constructor(private service:AdminServiceService,private router:Router)
   {
     
   }
   
-  datasubmitted(name:any,email:any,pass:any)
+  datasubmitted(email:any,pass:any)
   {
-    if(name=="SuperAdmin" && email=="superadmin@procat.in" &&pass=="superAdminProcat")
+    if( email=="superadmin@procat.in" &&pass=="superAdminProcat")
     {
       console.log("login sucess");
 
       this.router.navigate(['/SuperAdminHome']);
     }
     else{
-    this.valid= this.service.adminValidation(name,email,pass);
-    // this.service.setUsername(name);
+      this.service.getAdmins(email,pass).subscribe(
+
+        (response:any)=>{
+          if(response.status==="success"){
+            localStorage.setItem('currentUser', JSON.stringify(response));//object
+            localStorage.setItem('password',JSON.stringify(response.credentials.passWord));//object attribute
+            localStorage.setItem('username',JSON.stringify(response.credentials.userName));
+            localStorage.setItem('email',JSON.stringify(response.credentials.email));
+            localStorage.setItem('userid',JSON.stringify(response.credentials.userId));
+            
+          
+      
+           
+      
+            const storedUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+      
+            const password=JSON.parse(localStorage.getItem('password')+'');
+      
+            const email=JSON.parse(localStorage.getItem('email')+'');
+      
+            const username=JSON.parse(localStorage.getItem('username')+'');
+            const userid=JSON.parse(localStorage.getItem('userid')+'');
+
+      
+            console.log("local storage",storedUser);
+      
+            console.log("UserName",username);
+      
+            console.log("email",email);
+            console.log("pass",password);
+
+      
+            console.log("id",userid);
+           this.v=true;
+           this.router.navigate(['/useridValidate']);
+      
+          }
+      
+          // else if (response.status === 'invalid') {
+      
+          //   this.loginError = 'Invalid email or password. Please try again.';
+      
+          //   this.cdr.detectChanges();
+      
+          // }
+      
+        },
+      
+        (error:any)=>
+      
+        {
+      
+      console.error('Login Failed:',error);
+      
+     
+      
+        }
+      
+        );
+
+
+
     
-    
-    if(this.valid)
-    {
-      this.router.navigate(['/adminPage' ,{param: name}]);
-      // this.router.parent.navigate(['/PreviousDetailsCmp' {value1:abc, value2:xyz}]);
-      // this.router.navigate(['./NextCmp', {param: 3}])
-    }
     }
   }
-
-  // constructor(private sessionService: SessionService) { }
-
-  // ngOnInit() {
-  //   this.sessionService.set('username', 'john_doe');
-  //   const username = this.sessionService.get('username');
-  //   console.log(username); // Output: john_doe
-  // }
+  login()
+  {
+    this.approve=true;
+  }
+ 
 
 }

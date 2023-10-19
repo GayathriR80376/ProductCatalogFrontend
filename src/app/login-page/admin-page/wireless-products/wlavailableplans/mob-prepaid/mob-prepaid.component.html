@@ -101,7 +101,7 @@
 
      <!-- Pricing Start -->
 
-
+<!-- 
      <div class="container-xxl py-5">
         <div class="container px-lg-5">
             <div class="section-title position-relative text-center mx-auto mb-5 pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -199,18 +199,61 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Pricing End -->
     <!-- trial -->
+    <div class="container-xxl domain mb-5" style="margin-top: 90px;">
+        <div class="container px-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="section-title position-relative text-center mx-auto mb-4 pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                        <h1 class="mb-3">Search Your Plans here!!</h1>
+                        <!-- <p class="mb-1">Vero justo sed sed vero clita amet. Et justo vero sea diam elitr amet ipsum eos ipsum clita duo sed. Sed vero sea diam erat vero elitr sit clita.</p> -->
+                    </div>
+                    <div class="position-relative w-100 my-3 wow fadeInUp" data-wow-delay="0.3s">
+                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Search plan value you want "  [(ngModel)]="search" >
+                        <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Search</button>
+                    </div>
+                    <div class="row g-3 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                            <h5 class="fw-bold text-primary mb-1">.com</h5>
+                            <p class="mb-0">$9.99/year</p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                            <h5 class="fw-bold text-primary mb-1">.net</h5>
+                            <p class="mb-0">$9.99/year</p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                            <h5 class="fw-bold text-primary mb-1">.org</h5>
+                            <p class="mb-0">$9.99/year</p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                            <h5 class="fw-bold text-primary mb-1">.us</h5>
+                            <p class="mb-0">$9.99/year</p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                            <h5 class="fw-bold text-primary mb-1">.eu</h5>
+                            <p class="mb-0">$9.99/year</p>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+                            <h5 class="fw-bold text-primary mb-1">.co.uk</h5>
+                            <p class="mb-0">$9.99/year</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="container-xxl py-6">
         <div class="container px-lg-6">
          
             <div class="section-title position-relative text-center mx-auto mb-5 pb-4 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h1 class="mb-3">Our Hosting Plans</h1>
+                <h1 class="mb-3">Our PREPAID Plans</h1>
                 <p class="mb-1">Vero justo sed sed vero clita amet. Et justo vero sea diam elitr amet ipsum eos ipsum clita duo sed. Sed vero sea diam erat vero elitr sit clita.</p>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of products">
+                <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of products | adminNameFilter:an |searchFilter:search">
                     <div class="card-body d-flex flex-column justify-content-between">
                         <div class="card">
             <div class="row gy-5 gx-4">
@@ -232,12 +275,12 @@
                         <div class="text-center border-bottom p-4">
                             <p class="text-primary mb-1">{{p.dataperday}}<strong>/day Pack</strong></p>
                             <h1 class="mb-3">
-                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>₹{{p.planvaluel}}-<small
+                                <small class="align-top" style="font-size: 22px; line-height: 45px;"></small>₹{{p.planValue}}-<small
                                     class="align-bottom" style="font-size: 16px; line-height: 40px;">/ MONTH</small>
                             </h1>
                             <!-- <a class="btn btn-primary px-4 py-2" href="">Buy Now</a> -->
-                            <a class="btn btn-primary px-4 py-2" href="">Edit Now</a><br><br>
-                            <a class="btn btn-secondary px-4 py-2" href="">delete Now</a>
+                            <a class="btn btn-primary px-4 py-2" href="" data-toggle="modal" data-target="#loginModal" (click)="editNow(p.id)">Edit Now</a><br><br>
+                        <a class="btn btn-secondary px-4 py-2"  (click)="deletenow(p)">delete Now</a>
                         </div>
                         <div class="p-4 " >
                             <p class="border-bottom pb-3 text-lg-start"><i class="fa fa-check text-primary me-3 "></i>Pack validity {{p.planvalidity}} </p>
@@ -257,6 +300,110 @@
      </div>
 </div>          
     <!-- trial end -->
+
+    <!-- <edit Starts> -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editing</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button> -->
+                    </div>
+                    <div *ngFor="let p of editProducts">
+                    <div class="modal-body">
+                        <form id="frm_popupLogin">
+                            <div class="row g-3">
+                               
+                                <!-- <div class="wow fadeInUp" data-wow-delay="0.2s"> -->
+                                   
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="pvu" name="pvu" [(ngModel)]="p.planvaluel" [value]="p.planvaluel" placeholder="Your Email" value="₹">
+                                                    <label for="text">Plan Value</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="pval" name="pval" [(ngModel)]="p.planvalidity" [value]="p.planvalidity" placeholder="Your Name">
+                                                    <label for="name">Plan Validity</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="tot" name="tot" [(ngModel)]="p.totaldata" [value]="p.totaldata" placeholder="Your Email">
+                                                    <label for="email">Total Data</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="tot" name="tot" [(ngModel)]="p.dataperday" [value]="p.dataperday" placeholder="Your Email">
+                                                    <label for="email">DATA PER DAY</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="voi" name="voi" [(ngModel)]="p.voice" [value]="p.voice" placeholder="Your Email">
+                                                    <label for="email">Voice</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="sms" name="sms" [(ngModel)]="p.sms" [value]="p.sms"placeholder="Your Email">
+                                                    <label for="email">SMS</label>
+                                                </div> 
+                                            </div>
+
+                                         
+                                                      <div class="col-md-6">
+                                                        <div class="form-floating">
+                                                            <input type="text" class="form-control" id="an" name="an" [(ngModel)]="p.adminName" [value]="p.adminName" disabled placeholder="Your Email">
+                                                            <label for="email">UserName</label>
+                                                        </div>
+                                                        </div>
+                                                        
+                                      
+                                     <div class="col-12">
+                                    <div class="form-floating">
+                                        <div class="form-check form-check-inline" *ngFor="let ps of p.subscriptions">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" disabled checked="true" [value]="ps">
+                                            <label class="form-check-label" for="inlineCheckbox2" >{{ps}}</label>
+                                          </div>
+                                         
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <div class="form-check form-check-inline" *ngFor="let s of subproduct"  >
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" [value]="s.productName">
+                                            <label class="form-check-label" for="inlineCheckbox1" >{{s.productName}}</label>
+                                          </div>
+                                         
+                                    </div>
+                                </div>
+                               
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit"  (click)="onEditsubmit(p)">Edit OK</button>
+                                </div>
+                            </div>
+                           
+                            <!-- <div *ngIf="valid">
+                            {{list|json}}
+                            {{value}} -->
+                                         
+                                {{subProductSelected}}            
+                        
+                     </form>
+                     </div>
+                </div>
+                    </div>
+                </div>
+    </div>
+    <!-- </edit ends> -->
 
 
     <!-- Footer Start -->
@@ -337,6 +484,8 @@
    <a href="WLessexistingPlans" class="btn btn-lg btn-secondary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 </div>
   
+</div>
+</div>
 
   <!-- <router-outlet></router-outlet> -->
 

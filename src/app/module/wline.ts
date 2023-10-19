@@ -1,7 +1,7 @@
 export class wlineRequest
 {
     constructor(
-        private  planRental:any,
+        private  planValue:any,
         private  planValidity:any,
         private totalData:any,
         private  voice:any,
@@ -21,7 +21,7 @@ export class wlineResponse
 {
     constructor(
         private id:any,
-        private  planRental:any,
+        private  planValue:any,
         private  planValidity:any,
         private totalData:any,
         private  voice:any,

@@ -16,7 +16,7 @@ export class AddwlinepostpaidComponent {
   sms:any;
   others:any;
   category:any;
-  an:any;
+  an:any=JSON.parse(localStorage.getItem('username')+'');
 
   
   valid=false

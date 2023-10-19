@@ -29,6 +29,10 @@ import { AddBussPlanComponent } from './login-page/admin-page/business/add-buss-
 import { AdminslistComponent } from './login-page/super-admin/adminslist/adminslist.component';
 import { ProductQueueComponent } from './login-page/super-admin/product-queue/product-queue.component';
 import { StatusfilerPipe } from './pipe/statusfiler.pipe';
+import { UseridValidateComponent } from './login-page/userid-validate/userid-validate.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AdminNameFilterPipe } from './pipe/admin-name-filter.pipe';
+import { SearchFilterPipe } from './pipe/search-filter.pipe';
 
 
 @NgModule({
@@ -57,6 +61,10 @@ import { StatusfilerPipe } from './pipe/statusfiler.pipe';
     AdminslistComponent,
     ProductQueueComponent,
     StatusfilerPipe,
+    UseridValidateComponent,
+    LogoutComponent,
+    AdminNameFilterPipe,
+    SearchFilterPipe,
    
   ],
   imports: [

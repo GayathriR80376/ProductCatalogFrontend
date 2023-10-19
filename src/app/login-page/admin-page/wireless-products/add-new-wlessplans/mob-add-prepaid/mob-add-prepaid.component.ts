@@ -17,7 +17,7 @@ export class MobAddPrepaidComponent {
   voi:any;
   sms:any;
   subproducts:String[]=[];
-  an:any;
+  an:any=JSON.parse(localStorage.getItem('username')+'');
   status:String="Not-Approved"
   products :any;
  
@@ -36,7 +36,7 @@ export class MobAddPrepaidComponent {
   onsubmit()
  {
  
-  this.products=new WlessPrepaidRequest(this.pvu,this.pval,this.tot,this.dpd,this.voi,this.sms,this.getCheckboxValues(),this.aservice.getUsername(),this.status);
+  this.products=new WlessPrepaidRequest(this.pvu,this.pval,this.tot,this.dpd,this.voi,this.sms,this.getCheckboxValues(),this.an,this.status);
   this.service.postPrepaid(this.products).subscribe();
  }
 }

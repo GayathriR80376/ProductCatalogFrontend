@@ -9,6 +9,8 @@ export class FilterWlineCategoryPipe implements PipeTransform {
   transform(list: any[], cat:any) {
     if(cat=="Prepaid Plans")
     return list;
+    else if(cat=="Postpaid Plans")
+    return list;
     // return products.filter((pro)=>pro.pcategory==choice);
     else
     return list.filter((pro)=>pro.category==cat);
